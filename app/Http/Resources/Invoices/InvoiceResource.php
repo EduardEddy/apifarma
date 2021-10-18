@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Invoices;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Invoices\InvoiceProductResource;
 
 class InvoiceResource extends JsonResource
 {
@@ -22,7 +23,11 @@ class InvoiceResource extends JsonResource
             'status'=>$this->status,
             'delivery'=>$this->delivery,
             'comment_store'=>$this->comment_store,
-            'comment_user'=>$this->comment_user
+            'comment_user'=>$this->comment_user,
+            'invoice_product'=>$this->invoiceProduct,
+            'address_user'=>$this->addressUser,
+            'change_delivery'=>$this->change_delivery,
+            'created_at'=>$this->created_at
         ];
     }
 }

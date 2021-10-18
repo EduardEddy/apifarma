@@ -23,12 +23,13 @@ class UserResource extends JsonResource
             'profile'=>$this->profile,
 
             'identification'=>$this->identification,
-            'country'=>$this->country,
+            //'country'=>$this->country,
             'type_identification'=>$this->type_identification,
             'verify_token'=>$this->verify_token,
             'store'=>$this->store,
-            'lng'=>$this->lng,
-            'lat'=>$this->lat,
+            //'lng'=>$this->lng,
+            //'lat'=>$this->lat,
+            'addresses'=>$this->address,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 

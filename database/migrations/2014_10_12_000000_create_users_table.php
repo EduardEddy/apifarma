@@ -24,12 +24,12 @@ class CreateUsersTable extends Migration
             $table->enum('profile', ['sys_admin', 'manager','seller','user'])->default('user');
             $table->enum('account', ['active', 'inactive', 'suspended'])->default('inactive');
             $table->string('identification')->nullable();
-            $table->string('country', 50)->nullable();
-            $table->string('city', 50)->nullable();
+            //$table->string('country', 50)->nullable();
+            //$table->string('city', 50)->nullable();
             $table->string('type_identification', 50)->nullable();
             $table->string('verify_token', 100)->nullable();
-            $table->string('lat')->nullable();
-            $table->string('lng')->nullable();
+            //$table->string('lat')->nullable();
+            //$table->string('lng')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

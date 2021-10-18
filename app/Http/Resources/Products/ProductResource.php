@@ -21,7 +21,9 @@ class ProductResource extends JsonResource
             'components'=>$this->components,
             'active'=>$this->active,
             'cant'=>$this->cant,
+            'price'=>$this->price,
             'store'=>$this->store ?? '',
+            'image'=>$this->image,
             'user_created'=>$this->userCreated??'',
             'user_updated'=>$this->userUpdated??''
         ];

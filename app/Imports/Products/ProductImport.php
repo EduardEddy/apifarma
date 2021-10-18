@@ -22,22 +22,21 @@ class ProductImport implements ToCollection
     {
         try {
             foreach ($collection as $key => $product) {
-                if($key == 0){
-                    continue;
+                if($key > 0){
+                    $image = null;
+                    if ($product[5] != null) {
+                        $image = $this->validURLImage($product[5]);
+                    }
+                    Product::create([
+                        'name'=>$product[0],
+                        'description'=>$product[1],
+                        'components'=>$product[2],
+                        'cant'=>$product[3],
+                        'price'=>floatval($product[4]),
+                        'image'=>$image,
+                        'store_id'=>$this->store
+                    ]);
                 }
-                $image = null;
-                if ($product[5] != null) {
-                    $image = $this->validURLImage($product[5]);
-                }
-                Product::create([
-                    'name'=>$product[0],
-                    'description'=>$product[1],
-                    'components'=>$product[2],
-                    'cant'=>$product[3],
-                    'price'=>floatval($product[4]),
-                    'image'=>$image,
-                    'store_id'=>$this->store
-                ]);
             }
         } catch (\Throwable $th) {
             \Log::alert('Error.- ProductImport: '.$th->getMessage().' | Line: '.$th->getLine());

@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Invoice;
 use App\Models\Store;
 use App\Models\StoreSeller;
+use App\Models\AddressUser;
 
 // ** Observers **
 use App\Observers\Users\UserObserver;
@@ -19,6 +20,7 @@ use App\Observers\Products\ProductObserver;
 use App\Observers\Invoices\InvoiceObserver;
 use App\Observers\Stores\StoreObserver;
 use App\Observers\Stores\StoreSellerObserver;
+use App\Observers\Users\AddressUserObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -50,5 +52,7 @@ class AppServiceProvider extends ServiceProvider
         Store::observe(StoreObserver::class);
 
         StoreSeller::observe(StoreSellerObserver::class);
+
+        AddressUser::observe(AddressUserObserver::class);
     }
 }

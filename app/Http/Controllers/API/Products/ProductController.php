@@ -58,6 +58,18 @@ class ProductController extends Controller
     public function update(StoreRequest $request, Product $product)
     {
         try {
+            
+            if ($request->hasFile('file')) {
+                $random = Str::random(30);
+                $file = $request->file('file');
+                $name = $random.'.'.$file->extension();
+                $file->move(public_path('uploads/'), $name);
+                $filepath='uploads/'.$name;
+                $request['image']=$filepath;
+            }else{
+                $request['image']=$product->image;
+            }
+            $request['user_updated_id'] = Auth::user()->id;
             $product->update($request->all());
             return response()->json([
                 'message'=>'success',

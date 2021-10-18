@@ -9,13 +9,14 @@ class InvoiceProduct extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'product_id','invoice_id','price'
+        'product_id','invoice_id','price','cant'
     ];
 
     protected $casts = [
         'price'=>'float',
         'product_id'=>'integer',
         'invoice_id'=>'string',
+        'cant'=>'integer'
     ];
 
     /**

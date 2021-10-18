@@ -28,6 +28,7 @@ class CreateInvoicesTable extends Migration
             $table->enum('delivery', ['domicilio', 'local'])->default('domicilio');
             $table->text('comment_store')->nullable();
             $table->text('comment_user')->nullable();
+            $table->foreignId('address_user_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

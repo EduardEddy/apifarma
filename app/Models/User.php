@@ -20,8 +20,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name','last_name','email','password','phone','profile',
-        'identification','country','type_identification','verify_token',
-        'lat','lng','account','email_verified_at'
+        'identification','type_identification','verify_token',
+        /*'lat','lng','country'*/'account','email_verified_at'
     ];
 
     /**
@@ -50,5 +50,9 @@ class User extends Authenticatable
 
     public function AauthAcessToken(){
         return $this->hasMany('App\Models\OauthAccessToken');
+    }
+
+    public function address(){
+        return $this->hasMany('App\Models\AddressUser','user_id');
     }
 }
